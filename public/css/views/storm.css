@@ -1,0 +1,64 @@
+/*ul#component li div {
+	width: 500px;
+	height: 50px;
+	background-color: blue;
+}*/
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+a:active, a:hover {
+	outline: 0;
+	text-decoration: none;
+}
+
+.stormcomponent {
+	/*font-size: 75%;*/
+	margin: 1em;
+	padding: 1em;
+	/*width: 15em;*/
+	height: 5em;
+	font-weight: bold;
+	line-height: 1;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 0.75em;
+	background-color: #428bca;
+}
+
+.stormcomponent-supervisor {
+	background-color: #d9534f;
+}
+
+.stormcomponent-topology {
+	background-color: #339933;
+}
+
+.stormCluster {
+	height: 3em;
+}
+
+.stormCluster span {
+	font-size: 1.2em;
+}
+
+.textMedium-yellow {
+	font-size: 1.2em;
+	color: yellow;
+}
+
+.textMedium-orange {
+	font-size: 1.2em;
+	color: orange;
+}
+
+.cpuText {
+	position: relative;
+	font-size: 2em;
+	left: 245px;
+	top: -10px;
+}
+
+

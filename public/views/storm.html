@@ -1,0 +1,44 @@
+<section data-ng-controller="StormController">
+	
+	<div class="pure-menu pure-menu-open">
+		<!-- <a class="pure-menu-heading"> -->
+	
+		<strong>Storm Servers</strong> <input type="text" data-ng-model="filter.storm" />
+		<!-- </a> -->
+		<ul>
+			<li data-ng-repeat="storm in storms | filter:filter.storm" uppercase>
+				<hr />
+				<a><h2>
+					<span>
+						<span class="label label-primary">Cluster ID: {{storm.clusterid}}</span>
+					</span>
+					<span>
+						<span class="label label-info">Storm ID: {{storm.stormid}}</span>
+					</span>
+					<span class="label label-success" data-ng-if="storm.active">Active</span>
+					<!-- <input type="text" data-ng-model="filter.stormCluster" /></h2> -->
+				</a>
+				<div data-ng-repeat="stormCluster in stormClusters | filter:filter.storm">
+					<span data-ng-if="stormCluster.stormid == storm.stormid">
+						<a href="http://{{stormCluster.ipaddress}}:8080" target="_blank" data-ng-if="stormCluster.type == 'Nimbus'" data-ng-init="init(stormCluster)">
+							<span class="label label-warning">{{stormCluster.type}} - {{stormCluster.ipaddress}}</span>
+						</a>
+						<a href="http://hubble.idx.expedmz.com/templates/supervisor.html?graphiteUrl=http://10.0.16.59&nodes=ip-{{stormCluster.ipaddress.split('.').join('-')}}" 
+								target="_blank" data-ng-if="stormCluster.type == 'Supervisor'" data-ng-init="init(stormCluster)">
+							&nbsp;&nbsp;&nbsp;&nbsp;<span class="label label-default">{{stormCluster.type}} - {{stormCluster.ipaddress}} - {{stormCluster.cpu}}</span>
+						</a>
+					</span>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<br/>
+	<div class="pure-menu pure-menu-open">
+		<a class="pure-menu-heading"><strong>Kestrel Servers</strong> <input type="text" data-ng-model="filter.kestrel" /></a>
+		<ul>
+			<li data-ng-repeat="kestrel in kestrels | filter:filter.kestrel">
+				<a href="#">{{kestrel.env}} - {{kestrel.ipaddress}}</a>
+			</li>
+		</ul>
+	</div>
+</section>
